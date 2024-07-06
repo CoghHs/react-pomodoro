@@ -3,7 +3,7 @@ import { createGlobalStyle } from "styled-components";
 import Header from "./components/Header";
 
 const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
   a, abbr, acronym, address, big, cite, code,
@@ -29,9 +29,11 @@ const GlobalStyle = createGlobalStyle`
     display: block;
   }
   body {
+    background-color: black;
     line-height: 1;
-    font-family: "Source Sans 3", sans-serif;
+    font-family: "Dancing Script", cursive;
   }
+
   ol, ul {
     list-style: none;
   }
@@ -49,6 +51,7 @@ const GlobalStyle = createGlobalStyle`
   }
   a {
     text-decoration: none;
+    color: black
   }
   * {
     box-sizing: border-box;

@@ -1,14 +1,23 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const Title = styled.header`
+const Wrapper = styled.header`
   padding: 30px;
   font-size: 36px;
   font-weight: bolder;
   text-align: center;
+  color: white;
+  span {
+    color: white;
+  }
 `;
 
-function Header() {
-  return <Title>Disney Characters</Title>;
+export default function Header() {
+  return (
+    <Wrapper>
+      <Link to="/">
+        <span>Disney Characters</span>
+      </Link>
+    </Wrapper>
+  );
 }
-
-export default Header;
