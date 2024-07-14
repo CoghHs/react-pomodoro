@@ -6,94 +6,22 @@ import {
   minutesState,
   secondsState,
 } from "../atom";
-import styled from "styled-components";
+
 import { useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import PlayIcon from "../components/Icons/PlayIcon";
 import PauseIcon from "../components/Icons/PauseIcon";
-
-const Wrapper = styled(motion.div)`
-  background-color: white;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
-const Title = styled.h1`
-  font-size: 50px;
-  margin-bottom: 30px;
-`;
-
-const TimerWrap = styled.div`
-  display: flex;
-  align-items: center;
-  margin-bottom: 30px;
-  p {
-    font-size: 48px;
-  }
-`;
-
-const TimerCard = styled(motion.div)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.05);
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.2);
-  border-radius: 30px;
-  width: 200px;
-  height: 200px;
-  font-size: 36px;
-`;
-
-const BtnWrap = styled(motion.div)`
-  width: 100px;
-  height: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.05);
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.2);
-  margin-bottom: 30px;
-`;
-
-const ConuterWrap = styled(motion.div)`
-  width: 400px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-`;
-
-const Round = styled.div`
-  text-align: center;
-  margin: 0px auto;
-  div:first-child {
-    color: rgba(0, 0, 0, 0.7);
-    font-size: 30px;
-  }
-  div:last-child {
-    font-size: 20px;
-  }
-`;
-
-const TimerVariants = {
-  end: {
-    scale: 1,
-  },
-  initial: {
-    scale: 0,
-    transition: {
-      duration: 8,
-    },
-  },
-};
-
-const BtnVariants = {
-  hover: { scale: 1.3 },
-  click: { scale: 1 },
-};
+import {
+  BtnVariants,
+  BtnWrap,
+  ConuterWrap,
+  Round,
+  TimerCard,
+  TimerVariants,
+  TimerWrap,
+  Title,
+  Wrapper,
+} from "./PomodoroCss";
 
 export default function Pomodoro() {
   const [minutes, setMinutes] = useRecoilState(minutesState);
@@ -158,13 +86,20 @@ export default function Pomodoro() {
       <Wrapper>
         <Title>Pomodoro</Title>
         <TimerWrap>
-          <TimerCard>{minutes < 10 ? `0${minutes}` : minutes}</TimerCard>
+          <TimerCard
+            key={minutes}
+            variants={TimerVariants}
+            initial="initial"
+            animate="animate"
+          >
+            {minutes < 10 ? `0${minutes}` : minutes}
+          </TimerCard>
           <p>:</p>
           <TimerCard
             key={seconds}
             variants={TimerVariants}
             initial="initial"
-            animate="end"
+            animate="animate"
           >
             {seconds < 10 ? `0${seconds}` : seconds}
           </TimerCard>
