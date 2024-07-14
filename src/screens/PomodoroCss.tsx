@@ -12,7 +12,7 @@ export const Wrapper = styled(motion.div)`
 `;
 
 export const Title = styled.h1`
-  font-size: 50px;
+  font-size: 48px;
   font-weight: bolder;
   margin-bottom: 40px;
 `;
