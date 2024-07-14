@@ -1,7 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "./App";
-import Home from "./screens/Home";
-import Detail from "./screens/Detail";
+import Pomodoro from "./screens/Pomodoro";
 
 const router = createBrowserRouter([
   {
@@ -10,11 +9,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "",
-        element: <Home />,
-      },
-      {
-        path: "/characters/:id",
-        element: <Detail />,
+        element: <Pomodoro />,
       },
     ],
   },
